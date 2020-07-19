@@ -1,0 +1,89 @@
+<div class="home-layout">
+                <!-- nav -->
+                <nav class="wthree-w3ls">
+                    <div id="logo">
+                        <h1> <a class="navbar-brand px-5 mx-5" href="/home">Lyra
+                            </a>
+                        </h1>
+                    </div>
+
+                    <label for="drop" class="toggle">Menu</label>
+                    <input type="checkbox" id="drop" />
+                    <ul class="menu mr-auto">
+                        <li class="active"><a href="/home">Trang chủ</a></li>
+                        <li><a href="/about">Giới thiệu</a></li>
+                        <li><a routerLink="/product">Sản phẩm</a> </li>
+                        <li><a href="/news">Tin tức</a></li>
+                        <li><a href="contact.html">Liên hệ</a></li>
+                    </ul>
+                </nav>
+<div class="container">
+
+  <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">Sản phẩm</h1>
+  <hr class="mt-2 mb-5">
+<div class="row">
+  <div class="col-lg-4 col-sm-6 portfolio-item" *ngFor="let product of products  | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+    <div class="card h-100">
+      <a  routerLink="/home/product/{{product.id}}"><img class="card-img-top" [src]="product.img" alt=""></a>
+      <div class="card-body">
+        <h4 class="card-title">
+          <a  routerLink="/client/product/{{product.id}}">Tên sản phầm: {{product.name}}</a>
+        </h4>
+        <h5>Giá: ${{product.price}}</h5>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+    </div>
+    </div>
+  </div>
+   <ngb-pagination
+    [(page)]="page"
+    [pageSize]="pageSize"
+    [collectionSize]="products.length"></ngb-pagination>
+    </div>
+</div>
+<br><br><br><br>
+    <!-- footer -->
+    <footer class="py-lg-5 py-4">
+        <div class="container py-sm-3">
+            <div class="row footer-grids">
+                <div class="col-lg-4 mt-4">
+
+                    <h2> <img src="https://cf.shopee.vn/file/6507893c9020c9e9fac9167f3369346e_tn" alt=" " class="img-fluid">
+                    </h2>
+                </div>
+
+                <div class="col-lg-4 mt-4 ad-info">
+                    <h4 class="mb-4">Contact Info</h4>
+                    <p><span class="fa fa-map-marker"></span>90 nsequursu dsdesdc,
+                        xxx Honey Street 049436.<span>Newyork, NY.</span></p>
+                    <p class="phone"><span class="fa fa-phone"></span> +1(12) 123 456 789 </p>
+                    <p class="phone"><span class="fa fa-fax"></span> +1(12) 123 456 789 </p>
+                    <p><span class="fa fa-envelope"></span><a href="mailto:info@example.com">info@example.com</a></p>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <!-- //footer -->
+    <!-- copyright -->
+    <div class="copy_right p-3 d-flex">
+        <div class="container">
+            <div class="row d-flex">
+                <div class="col-lg-9 copy_w3pvt">
+                    <p class="text-lg-left text-center">© 2019 Infinitude. All rights reserved | Design by
+                        <a href="http://w3layouts.com/" target="_blank">W3layouts</a></p>
+
+                </div>
+                <!-- move top -->
+                <div class="col-lg-3 move-top text-lg-right text-center">
+                    <a href="#home" class="move-top">
+                        <span class="fa fa-angle-double-up mt-3" aria-hidden="true"></span>
+                    </a>
+                </div>
+                <!-- move top -->
+            </div>
+        </div>
+
+    </div>
+</div>

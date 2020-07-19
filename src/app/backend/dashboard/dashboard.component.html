@@ -1,0 +1,28 @@
+<header class="d-flex mb-3 pt-5 justify-content-between">
+<input style="width: 300px;" class="form-control" placeholder="Search for..." type="text" [(ngModel)]="name" (input)="search()"/>
+    <button class="btn btn-primary" routerLink="/admin/add">Add Product</button>
+</header>
+<br>
+<div class="row">
+    <div ngClass="col-lg-4 col-md-6 mb-4" *ngFor="let product of products | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+    <div class="card h-100">
+    <a  routerLink="{{product.id}}"><img class="card-img-top" [src]="product.img" alt=""></a>
+    <div class="card-body">
+        <h4 class="card-title">
+            <a  routerLink="{{product.id}}">Tên sản phẩm: {{product.name}}</a>
+        </h4>
+        <h5>Giá: ${{product.price}}VNĐ</h5>
+        <p class="card-text"><small class="text-muted"><b>Mô tả sản phẩm:</b><br>{{product.desc}}</small></p>
+    </div>
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <button  class="btn btn-secondary"  (click)="removeItem(product.id)">Delete</button>
+        <button  class="btn btn-secondary" routerLink="edit/{{product.id}}">Edit</button>
+      </div>
+  </div>
+
+    </div>
+</div>
+<ngb-pagination
+[(page)]="page"
+[pageSize]="pageSize"
+[collectionSize]="products.length"></ngb-pagination>

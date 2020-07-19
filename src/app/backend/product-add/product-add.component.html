@@ -1,0 +1,31 @@
+ <form name="form" [formGroup]="form">
+ <div class="form-group now">
+      <label class="">Product Name </label>
+      <input type="text" class="form-control" formControlName="name" id="name" [(ngModel)]="product.name" [ngClass]="{'is-invalid':form.get('name').touched && form.get('name').invalid}" required placeholder="">
+      <div class="invalid-feedback">
+              <div>Vui lòng nhập tên sản phẩm</div>
+            </div>
+  </div>
+    <div class="form-group">
+        <label for="">Product photo</label>
+        <input type="text" class="form-control" formControlName="img" id="img"  [(ngModel)]="product.img" [ngClass]="{'is-invalid':form.get('img').touched && form.get('img').invalid}" required placeholder="" />
+        <div class="invalid-feedback">
+              <div>Ảnh không được để trống</div>
+            </div>
+      </div>
+    <div class="form-group">
+      <label for="">Price</label>
+      <input type="number" class="form-control" formControlName="price" id="price" [(ngModel)]="product.price"[ngClass]="{'is-invalid':form.get('price').touched && form.get('price').invalid}" required  placeholder=""/>
+        <div class="invalid-feedback">
+              <div>giá sản phẩm không để trống</div>
+            </div>
+    </div>
+    <div class="form-group">
+        <label for="">Status</label>
+        <input type="text" class="form-control"  formControlName="desc" id="desc" [(ngModel)]="product.desc"[ngClass]="{'is-invalid':form.get('desc').touched && form.get('desc').invalid}" required placeholder=""/>
+        <div class="invalid-feedback">
+              <div>Mô tả không được để trống</div>
+            </div>
+      </div>
+    <button class="btn btn-primary" (click)="addProduct()"[disabled]="!form.valid">Add Product</button>
+ </form>
